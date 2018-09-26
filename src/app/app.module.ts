@@ -5,21 +5,41 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import {AngularFireModule} from 'angularfire2'
+import { initializeApp } from '../../node_modules/firebase';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+
+var FirebaseConfig = {
+  apiKey: "AIzaSyD7cQn4KoOfdr_-bVv-SmsDS-p2mA1e9qQ",
+  authDomain: "firelist-10ae7.firebaseapp.com",
+  databaseURL: "https://firelist-10ae7.firebaseio.com",
+  projectId: "firelist-10ae7",
+  storageBucket: "firelist-10ae7.appspot.com",
+  messagingSenderId: "54563263506"
+};
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FirebaseConfig),
+    AngularFireDatabaseModule
+
+
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,
